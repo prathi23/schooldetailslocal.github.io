@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Higher Primary School</title>
+	<link rel="stylesheet" type="text/css" href="style3.css">
+	<style>
+	figcaption.popup{
+		position: absolute;
+		top:3%;
+		left: 30%;
+		padding: 10px;
+		background: white;
+		box-shadow: 2px 4px 15px 4px green;
+		border-radius: 10px;
+		visibility: hidden;
+	}
+	figcaption.popup1{
+		position: absolute;
+		top:55%;
+		left: 30%;
+		padding: 10px;
+		background: white;
+		box-shadow: 2px 4px 15px 4px green;
+		border-radius: 10px;
+		visibility: hidden;
+	}
+	figure.thumbanail:hover
+	figcaption.popup{
+		position: absolute;
+		top: 3%;
+		left: 30%;
+		visibility: visible;
+	}
+	figure.thumbanail:hover
+	figcaption.popup1{
+		position: absolute;
+		top: 55%;
+		left: 30%;
+		visibility: visible;
+	}
+    </style>
+</head>
+<body>
+	<div class="menu-bar">
+		       <ul>
+           <li><select onchange="la(this.value)" class="m1">
+               <option disabled selected>Karkala School Details</option>
+               <option value="index.html">Private High School</option>
+               <option value="index1.html">Public Primary School</option>
+               <option value="index2.html">Public High School</option>
+               <option value="index3.html">Private PUC</option>
+               <option value="index4.html">Private Primary School</option>
+           </select>
+       </li>
+       <li><select onchange="la(this.value)" class="m1">
+           <option disabled selected>Karkala Industries Details</option>
+           <option value="Large_Scale_Details.html">Large Scale Industries Details</option>
+           <option value="Medium_Scale_Industries.html">Medium Scale Industries Details</option>
+           <option value="Small_Scale_Industry.html">Small Scale Industries Details</option>
+       </select></li>
+              <li>
+                <select onchange="la(this.value)" class="m1">
+                    <option disabled selected>Udupi District Literacy Details</option>
+                    <option value="udupiliteracyrate.html">Udupi District Literacy Rate</option>
+       </select></li>
+       <li><select onchange="la(this.value)" class="m1">
+           <option disabled selected>Other Details</option>
+           <option value="collegesandlecturers.html">Number of PUC Colleges Lecturers and Students Details</option>
+           <option value="GeneralDegreeColleges.html">General Degree Colleges Details</option>
+           <option value="HighSchools.html">High schools Details</option>
+           <option value="HigherPrimarySchools.html">Higher Primary School Details</option>
+           <option value="LowerPrimarySchools.html">Lower Primary School Details</option>
+           <option value="nooffactoriesandemployees.html">Number of Factories and Employees Details</option>
+           <option value="PolytechnicColleges.html">Polytechnic Colleges Details</option>
+       </select>
+   </li>
+    </ul>
+   </div>
+	<figure class="thumbanail">
+		<img src="C:\Users\hp\Desktop\final year project\images2\udupi.jpg" height="400" width="500">
+		<figcaption class="popup">
+			<img src="C:\Users\hp\Desktop\final year project\images2\higherprimaryschoolstrength.jpg" height="320" width="700">
+		</figcaption>
+		<figcaption class="popup1">
+			<img src="C:\Users\hp\Desktop\final year project\images2\noofhigherprimaryschools.jpg" height="320" width="700">
+		</figcaption>
+	</figure>
+	<script src="l2.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+.menu-bar{
+	background: white;
+	text-align: center;
+}
+.menu-bar ul{
+	display: inline-flex;
+	list-style: none;
+	color: black;
+}
+.menu-bar ul li{
+	padding: 15px;
+}
+.m1{
+	padding: 10px 15px;
+	color: #3333333;
+	background-color: lightblue;
+	border:1px solid;
+	cursor: pointer;
+	border-radius: 5px; 
+}
+.select:hover{
+	outline: none;
+	border-radius: 1px solid;
+}
+.select option{
+	background: lightblue;
+}

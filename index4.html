@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
+        <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
+        <link rel="stylesheet" type="text/css" href="style3.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title>Private Primary School</title>
+    </head>
+    <body>
+        <div class="menu-bar">
+                   <ul>
+           <li><select onchange="la(this.value)" class="m1">
+               <option disabled selected>Karkala School Details</option>
+               <option value="index.html">Private High School</option>
+               <option value="index1.html">Public Primary School</option>
+               <option value="index2.html">Public High School</option>
+               <option value="index3.html">Private PUC</option>
+               <option value="index4.html">Private Primary School</option>
+           </select>
+       </li>
+       <li><select onchange="la(this.value)" class="m1">
+           <option disabled selected>Karkala Industries Details</option>
+           <option value="Large_Scale_Details.html">Large Scale Industries Details</option>
+           <option value="Medium_Scale_Industries.html">Medium Scale Industries Details</option>
+           <option value="Small_Scale_Industry.html">Small Scale Industries Details</option>
+       </select></li>
+              <li>
+                <select onchange="la(this.value)" class="m1">
+                    <option disabled selected>Udupi District Literacy Details</option>
+                    <option value="udupiliteracyrate.html">Udupi District Literacy Rate</option>
+       </select></li>
+       <li><select onchange="la(this.value)" class="m1">
+           <option disabled selected>Other Details</option>
+           <option value="collegesandlecturers.html">Number of PUC Colleges Lecturers and Students Details</option>
+           <option value="GeneralDegreeColleges.html">General Degree Colleges Details</option>
+           <option value="HighSchools.html">High schools Details</option>
+           <option value="HigherPrimarySchools.html">Higher Primary School Details</option>
+           <option value="LowerPrimarySchools.html">Lower Primary School Details</option>
+           <option value="nooffactoriesandemployees.html">Number of Factories and Employees Details</option>
+           <option value="PolytechnicColleges.html">Polytechnic Colleges Details</option>
+       </select>
+   </li>
+    </ul>
+   </div>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
+        <script src="js/leaflet-search.js"></script>
+        <script src="l2.js"></script>
+        <script src="data/privateprimaryschool_1.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[12.86764352336769,73.82068286159122],[13.854306083312999,75.8338528157019]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_OSMStandard_0');
+        map.getPane('pane_OSMStandard_0').style.zIndex = 400;
+        var layer_OSMStandard_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            pane: 'pane_OSMStandard_0',
+            opacity: 1.0,
+            attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_OSMStandard_0;
+        map.addLayer(layer_OSMStandard_0);
+        function pop_privateprimaryschool_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Sr. No.'] !== null ? autolinker.link(feature.properties['Sr. No.'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">District N</th>\
+                        <td>' + (feature.properties['District N'] !== null ? autolinker.link(feature.properties['District N'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Block Name</th>\
+                        <td>' + (feature.properties['Block Name'] !== null ? autolinker.link(feature.properties['Block Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">CRP Name</th>\
+                        <td>' + (feature.properties['CRP Name'] !== null ? autolinker.link(feature.properties['CRP Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">School Nam</th>\
+                        <td>' + (feature.properties['School Nam'] !== null ? autolinker.link(feature.properties['School Nam'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Class 1</th>\
+                        <td>' + (feature.properties['Class 1'] !== null ? autolinker.link(feature.properties['Class 1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Class 2</th>\
+                        <td>' + (feature.properties['Class 2'] !== null ? autolinker.link(feature.properties['Class 2'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Class 3</th>\
+                        <td>' + (feature.properties['Class 3'] !== null ? autolinker.link(feature.properties['Class 3'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Class 4</th>\
+                        <td>' + (feature.properties['Class 4'] !== null ? autolinker.link(feature.properties['Class 4'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Class 5</th>\
+                        <td>' + (feature.properties['Class 5'] !== null ? autolinker.link(feature.properties['Class 5'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Class 6</th>\
+                        <td>' + (feature.properties['Class 6'] !== null ? autolinker.link(feature.properties['Class 6'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Class 7</th>\
+                        <td>' + (feature.properties['Class 7'] !== null ? autolinker.link(feature.properties['Class 7'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Total</th>\
+                        <td>' + (feature.properties['Total'] !== null ? autolinker.link(feature.properties['Total'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Latitude</th>\
+                        <td>' + (feature.properties['Latitude'] !== null ? autolinker.link(feature.properties['Latitude'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">longitude</th>\
+                        <td>' + (feature.properties['longitude'] !== null ? autolinker.link(feature.properties['longitude'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Email Adre</th>\
+                        <td>' + (feature.properties['Email Adre'] !== null ? autolinker.link(feature.properties['Email Adre'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Head maste</th>\
+                        <td>' + (feature.properties['Head maste'] !== null ? autolinker.link(feature.properties['Head maste'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Mobile No</th>\
+                        <td>' + (feature.properties['Mobile No'] !== null ? autolinker.link(feature.properties['Mobile No'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Teacher Na</th>\
+                        <td>' + (feature.properties['Teacher Na'] !== null ? autolinker.link(feature.properties['Teacher Na'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Mobile No_</th>\
+                        <td>' + (feature.properties['Mobile No_'] !== null ? autolinker.link(feature.properties['Mobile No_'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">field_21</th>\
+                        <td>' + (feature.properties['field_21'] !== null ? autolinker.link(feature.properties['field_21'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">field_22</th>\
+                        <td>' + (feature.properties['field_22'] !== null ? autolinker.link(feature.properties['field_22'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_privateprimaryschool_1_0() {
+            return {
+                pane: 'pane_privateprimaryschool_1',
+                radius: 5.999999999999998,
+                opacity: 1,
+                color: 'rgba(179,92,21,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,128,30,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_privateprimaryschool_1');
+        map.getPane('pane_privateprimaryschool_1').style.zIndex = 401;
+        map.getPane('pane_privateprimaryschool_1').style['mix-blend-mode'] = 'normal';
+        var layer_privateprimaryschool_1 = new L.geoJson(json_privateprimaryschool_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_privateprimaryschool_1',
+            layerName: 'layer_privateprimaryschool_1',
+            pane: 'pane_privateprimaryschool_1',
+            onEachFeature: pop_privateprimaryschool_1,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_privateprimaryschool_1_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_privateprimaryschool_1);
+        map.addLayer(layer_privateprimaryschool_1);
+        var osmGeocoder = new L.Control.Geocoder({
+            collapsed: true,
+            position: 'topleft',
+            text: 'Search',
+            title: 'Testing'
+        }).addTo(map);
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .className += ' fa fa-search';
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .title += 'Search for a place';
+        setBounds();
+        var i = 0;
+        layer_privateprimaryschool_1.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['School Nam'] !== null?String('<div style="color: #000000; font-size: 14pt; font-style: italic; font-family: \'Calibri\', sans-serif;">' + layer.feature.properties['School Nam']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_privateprimaryschool_1'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        map.addControl(new L.Control.Search({
+            layer: layer_privateprimaryschool_1,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: 'School Nam'}));
+        document.getElementsByClassName('search-button')[0].className +=
+         ' fa fa-binoculars';
+        resetLabels([layer_privateprimaryschool_1]);
+        map.on("zoomend", function(){
+            resetLabels([layer_privateprimaryschool_1]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_privateprimaryschool_1]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_privateprimaryschool_1]);
+        });
+        </script>
+    </body>
+</html>
